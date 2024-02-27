@@ -1,12 +1,8 @@
-class User{
-  User({super.key,
-  required this.userId,
-  required this.id,
-  required this.title,
-  required this.body})
+class User {
+  User({required this.userId, required this.id, required this.title, required this.completed});
 
-  Int userId;
-  Int id;
+  int userId;
+  int id;
   String title;
-  String body;
+  bool completed;
 }

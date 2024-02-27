@@ -11,7 +11,7 @@ class GettingTodoState extends TodoState {}
 class TodoReceivedState extends TodoState {
   TodoReceivedState({required this.todos});
 
-  final List todos;
+  final List<User> todos;
 
   List<Object> get props => [todos];
 }

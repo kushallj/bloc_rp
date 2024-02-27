@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:bloc_rp/models/user.dart'
+
+import '../models/user.dart';
 class TodoService {
   // Future<bool> logOut() async {
   //   try{
@@ -12,14 +13,10 @@ class TodoService {
   // }
   final dio = Dio();
 
-  void request() async {
-    User response;
-    response = await dio.get('https://jsonplaceholder.typicode.com/');
-    print(response.data.toString());
-    // The below request is the same as above.
-    response = await dio.get(
-      '/post',
+  Future<List<User>> getTodos() async {
+     final res = await dio.get('https://jsonplaceholder.typicode.com/todos');
+     final todos = res.data as List;
+     return todos.map((e) => User(userId: e['userId'], id: e['id'], title: e['title'], completed:e['completed'] )).toList();
+  }
 
-    );
-    print(response.data.toString());
 }

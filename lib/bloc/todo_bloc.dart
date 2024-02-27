@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../models/user.dart';
 import '../service/todo_service.dart';
 
 part 'todo_event.dart';
@@ -25,7 +26,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   Stream<TodoState> _mapGetTodoEventToState(GetTodoEvent event) async* {
     yield GettingTodoState();
     try {
-      final res = await _todoService.getTodo();
+      final res = await _todoService.getTodos();
       yield TodoReceivedState(todos: res);
     } on Exception catch (e) {
       yield GettingTodoErrorState(message: e.toString());
