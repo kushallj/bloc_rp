@@ -16,6 +16,6 @@ class Home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Obx(() => Text("Clicks:"))),
         body: Center(child: ElevatedButton(child: const Text("Go to Other"), onPressed: () {})),
-        floatingActionButton: FloatingActionButton(onPressed: c.increment, child: Icon(Icons.add)));
+        floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add)));
   }
 }
