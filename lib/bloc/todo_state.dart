@@ -1,14 +1,14 @@
 part of 'todo_bloc.dart';
 
-abstract class TodoState{
+abstract class TodoState {
   const TodoState();
 }
 
-class UninitializedState extends TodoState{}
+class UninitializedState extends TodoState {}
 
-class GettingTodoState extends TodoState{}
+class GettingTodoState extends TodoState {}
 
-class TodoReceivedState extends TodoState{
+class TodoReceivedState extends TodoState {
   TodoReceivedState({required this.todos});
 
   final List todos;
@@ -17,6 +17,7 @@ class TodoReceivedState extends TodoState{
 }
 
 class GettingTodoErrorState extends TodoState {
+  const GettingTodoErrorState({required this.message});
 
   final String message;
 
